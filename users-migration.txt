@@ -1,0 +1,17 @@
+//NA STARYM SERWERZE
+
+mysql -B -N -uda_admin -p -e "SELECT CONCAT('\'', user,'\'@\'', host, '\'') FROM user WHERE user != 'debian-sys-maint' AND user != 'root' AND user != 'da_admin' AND user != ''" mysql > mysql_all_users.txt
+
+
+while read line; do mysql -B -N -uda_admin -p9gspEEuI -e "SHOW GRANTS FOR $line"; done < mysql_all_users.txt > mysql_all_users_sql.sql
+
+
+sed -i 's/$/;/' mysql_all_users_sql.sql
+
+188.138.56.224
+sed -i 's/188.138.56.224/localhost/g' ./mysql_all_users.txt
+
+
+//NA NOWYM
+
+mysql -u da_admin -p < mysql_all_users_sql.sql

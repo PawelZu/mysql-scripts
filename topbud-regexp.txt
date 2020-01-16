@@ -1,0 +1,22 @@
+insert into `12337firm-firmybudowlane-pl` (`Nazwa`,`Kategoria`,`Bran¿a`,`Województwo`,`Miejscowosc`,`Ulica`,`Kod pocztowy`,`Osoba kontaktowa`,`Telefon`,`Telefon Kom`,`Fax`,`WWW`,`NIP`,`REGON`,`Uslugi`)
+select 
+Nazwa, NULL,
+concat( regex_replace(
+				 '[0-9.]',  '',  `Bran¿a wg EKD`
+				),
+				', ',
+				regex_replace(
+				 '[0-9.]',  '',  `Bran¿a wg SIC`
+				)
+) as branza,
+`Nowe województwo`, `Miasto`, `Adres`, `Kod pocztowy`, NULL, `Telefony`, NULL, `Faxy`, `WWW`, NULL, NULL, `Oferta firmy`
+from `11799firm-program`
+
+
+
+insert into `12337firm-firmybudowlane-pl` (`Nazwa`,`Kategoria`,`Bran¿a`,`Uslugi`,`Województwo`,`Miejscowosc`,`Ulica`,`Kod pocztowy`,`Osoba kontaktowa`,`Telefon`,`Telefon Kom`,`Fax`,`WWW`,`NIP`,`REGON`,`Opis firmy`)
+select 
+`Nazwa firmy`, NULL,
+concat(`Bran¿a1`, ', ',`Bran¿a2`, ', ',`Bran¿a3`, ', ',`Bran¿a4`, ', ',`Bran¿a5`, ', ',`Bran¿a6`, ', ',`Bran¿a7`, ', ',`Bran¿a8`, ', ',`Bran¿a9`, ', ',`Bran¿a10`) as branza,
+NULL, `województwo`, NULL, `Adres`, NULL, NULL, `Telefon`, NULL, NULL, `WWW`, NULL, NULL, NULL
+from `10963firm-grupaPSB`

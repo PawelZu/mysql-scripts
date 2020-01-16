@@ -1,0 +1,22 @@
+/root/KOPIASQL
+
+
+przywracanie backupu:
+pliki .frm .MYD .MYI z backupu wybranej bazy lub tylko wybranych tabel kopiujemy do bazy przy wy³¹czonym mysqlu
+
+
+
+List Content of tar Archive File
+tar -tvf uploadprogress.tar
+
+rozpakowanie wybranego folderu
+tar -xvf /root/KOPIASQL/2014-04-21/mysql.tar usr/local/mysql/data/admin_trend
+
+
+tar -xvf /root/KOPIASQL/2014-04-21/mysql.tar usr/local/mysql/data/information_schema
+
+
+
+
+rm /tmp/mysql.sock
+/etc/init.d/mysqld restart

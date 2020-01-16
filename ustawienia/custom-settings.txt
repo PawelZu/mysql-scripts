@@ -1,0 +1,17 @@
+max_heap_table_size 64M  by這 16M
+tmp_table_size 64M  by這 16M
+
+query_cache_size 256M  by這 8M
+query_cache_limit 4M  by這 2M
+
+SET GLOBAL max_heap_table_size =1024*1024*64;
+SET GLOBAL tmp_table_size =1024*1024*64;
+SET GLOBAL query_cache_size =1024*1024*256;
+SET GLOBAL query_cache_limit =1024*1024*4;
+
+
+
+SET GLOBAL max_heap_table_size =1024*1024*16;
+SET GLOBAL tmp_table_size =1024*1024*16;
+SET GLOBAL query_cache_size =1024*1024*8;
+SET GLOBAL query_cache_limit =1024*1024*2;
